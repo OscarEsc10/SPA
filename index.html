@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA</title>
+    <link rel="shortcut icon" href="./src/assets/app.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+    <!-- HEADER with navigation improved -->
+    <header class="bg-white shadow sticky top-0 z-50 w-full">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between"
+      >
+        <h1 class="text-xl font-bold text-blue-600">MySPA</h1>
+        <nav class="flex flex-col md:flex-row gap-2 md:gap-6 text-sm">
+          <a href="/" class="hover:text-blue-700 transition cursor-pointer"
+            >Home</a
+          >
+          <a href="/login" class="hover:text-blue-700 transition cursor-pointer"
+            >Login</a
+          >
+          <a
+            href="/dashboard" class="hover:text-blue-700 transition cursor-pointer"
+            class="hover:text-blue-700 transition cursor-pointer"
+            >List of events</a
+          >
+          <a
+            href="/register" class="hover:text-blue-700 transition cursor-pointer" 
+            class="hover:text-blue-700 transition cursor-pointer"
+            >register</a
+          >
+          <span id="navbar-username" class="hidden font-semibold text-black-800"></span>
+          <button id="navbar-logout-btn" class="hidden bg-red-600 text-white px-3 py-1 
+          rounded hover:bg-red-700 transition cursor-pointer">Logout</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN where dynamic content is loaded -->
+    <main id="app" class="flex-grow px-4 py-10 max-w-6xl mx-auto w-full">
+      <!-- Initial load: dynamic welcome message -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-gray-200 p-4 text-center text-sm text-gray-600 w-full border-t border-gray-300 shadow"
+    >
+      © 2025 MySPA. made with 💙 by Oscar.
+    </footer>
+    <script type="module" src="/src/router/router.js"></script>
+  </body>
+</html>
