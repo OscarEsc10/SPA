@@ -1,53 +1,67 @@
 {
-    "users": [
-      {
-        "id": "4",
-        "name": "Juan Gómez",
-        "email": "juan.gomez@example.com",
-        "password": "juan321",
-        "role": "admin"
-      },
-      {
-        "id": "8e92",
-        "name": "Oscar",
-        "email": "oscar123@example.com",
-        "password": "oscar123",
-        "role": "admin"
-      },
-      {
-        "id": "53aa",
-        "name": "andres",
-        "email": "andres@example.com",
-        "password": "andres321",
-        "role": "user"
-      },
-      {
-        "id": "bcec",
-        "name": "Oscar",
-        "email": "oscar1223@example.com",
-        "password": "12345",
-        "role": "user"
-      },
-      {
-        "id": "05c0",
-        "name": "andres",
-        "email": "andre1s1@example.com",
-        "password": "12345",
-        "role": "user"
-      },
-      {
-        "id": "223a",
-        "name": "alfredo",
-        "email": "alfredo1233@example.com",
-        "password": "alfredo123",
-        "role": "user"
-      },
-      {
-        "id": "2223",
-        "name": "alfredo",
-        "email": "alfredo1233@example.com",
-        "password": "alfredo123",
-        "role": "user"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": "4",
+      "name": "Juan Gómez",
+      "email": "juan.gomez@example.com",
+      "password": "juan321",
+      "role": "admin"
+    },
+    {
+      "id": "8e92",
+      "name": "Oscar",
+      "email": "oscar123@example.com",
+      "password": "oscar123",
+      "role": "admin"
+    },
+    {
+      "id": "53aa",
+      "name": "andres",
+      "email": "andres@example.com",
+      "password": "andres321",
+      "role": "user"
+    },
+    {
+      "id": "bcec",
+      "name": "Oscar",
+      "email": "oscar1223@example.com",
+      "password": "12345",
+      "role": "user"
+    },
+    {
+      "id": "05c0",
+      "name": "andres",
+      "email": "andre1s1@example.com",
+      "password": "12345",
+      "role": "user"
+    },
+    {
+      "id": "223a",
+      "name": "alfredo",
+      "email": "alfredo1233@example.com",
+      "password": "alfredo123",
+      "role": "user"
+    },
+    {
+      "id": "2223",
+      "name": "alfredo",
+      "email": "alfredo1233@example.com",
+      "password": "alfredo123",
+      "role": "user"
+    },
+    {
+      "id": "7db1",
+      "name": "Nuevo Usuario",
+      "email": "nuevo@example.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "e2a7",
+      "name": "ana",
+      "email": "ana@example.com",
+      "password": "12345",
+      "role": "user"
+    }
+  ]
+}

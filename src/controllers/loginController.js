@@ -1,38 +1,47 @@
+// API endpoint for users
 const users_api = 'http://localhost:3000/users';
 
+// Sets up the login form event listener and handles login logic
 export function setupLoginForm() {
   const form = document.getElementById('login-form');
   const errorMessage = document.getElementById('login-error');
 
+  // Listen for form submission
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
 
     const email = form.email.value.trim();
     const password = form.password.value.trim();
 
     try {
+      // Fetch users with the given email from the API
       const response = await fetch(`${users_api}?email=${email}`);
       const users = await response.json();
 
-      // Buscar usuario con email y contraseña correctos
+      // Find user with matching password
       const user = users.find(u => u.password === password);
 
       if (user) {
+        // Remove password before saving user data to localStorage
         const { password, ...userWithoutPassword } = user;
         localStorage.setItem('user', JSON.stringify(userWithoutPassword));
+        // Redirect to dashboard and trigger route change
         window.history.pushState({}, '', '/dashboard');
         window.dispatchEvent(new Event('popstate'));
       } else {
+        // Show error if credentials are incorrect
         errorMessage.textContent = 'Wrong email or password';
       }
 
     } catch (error) {
+      // Show error if there is a server connection issue
       errorMessage.textContent = 'Error connecting to the server';
       console.error(error);
     }
   });
 }
 
+// Updates the visibility of navigation elements based on user login state
 export function updateNavVisibility() {
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -44,6 +53,7 @@ export function updateNavVisibility() {
   const navbarUsername = document.getElementById('navbar-username');
 
   if (user) {
+    // Hide login/register, show logout/dashboard, display username
     if (loginLink) loginLink.classList.add('hidden');
     if (registerLink) registerLink.classList.add('hidden');
     if (logoutBtn) logoutBtn.classList.remove('hidden');
@@ -54,6 +64,7 @@ export function updateNavVisibility() {
       navbarUsername.classList.remove('hidden');
     }
   } else {
+    // Show login/register, hide logout/dashboard, clear username
     if (loginLink) loginLink.classList.remove('hidden');
     if (registerLink) registerLink.classList.remove('hidden');
     if (logoutBtn) logoutBtn.classList.add('hidden');

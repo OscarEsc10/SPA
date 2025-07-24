@@ -1,3 +1,4 @@
+// This file handles the rendering and logic for the events management view
 export async function eventsManagment() {
   const user = JSON.parse(localStorage.getItem('user'));
   if (!user) {

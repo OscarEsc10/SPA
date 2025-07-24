@@ -1,3 +1,4 @@
+// This file handles the login view and user authentication logic
 // Returns the HTML for the login view
 export async function loginView() {
   return `

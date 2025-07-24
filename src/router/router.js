@@ -7,6 +7,7 @@ import { listOfUser } from "../views/listOfusers.js";
 import { eventsManagment } from "../views/eventsManagment.js";
 import { setupLoginForm, updateNavVisibility } from '../controllers/loginController.js';
 import { setupLogoutButton } from '../controllers/logoutcontroller.js';
+import { registerLogic } from '../controllers/registerControllers.js';
 
 // Import transition effects for smooth page transitions
 import { applyTransition } from "../assets/jsStyles/styles.js";
@@ -44,6 +45,7 @@ async function router(e) {
 
   if (path == '/login') setupLoginForm();
   if (path == '/dashboard') setupLogoutButton();
+  if (path == '/register') registerLogic();
 
   updateNavVisibility();
 }
