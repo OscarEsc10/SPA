@@ -31,3 +31,4 @@ export function setupLogoutButton() {
       console.warn('[DEBUG] Botón logout navbar no encontrado');
     }
   } 
+

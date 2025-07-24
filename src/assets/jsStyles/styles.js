@@ -22,7 +22,7 @@ export async function applyTransition(html, newPath) {
 
 // Verify the view position and move according to it
 function determineSlideDirection(oldPath, newPath) {
-  const routeOrder = ['/', '/login', '/register', '/dashboard', '/users', '/forbidden'];
+  const routeOrder = ['/', '/login', '/register', '/dashboard', '/users'];
   const oldIndex = routeOrder.indexOf(oldPath);
   const newIndex = routeOrder.indexOf(newPath);
 

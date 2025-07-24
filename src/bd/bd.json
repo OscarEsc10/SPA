@@ -62,6 +62,13 @@
       "email": "ana@example.com",
       "password": "12345",
       "role": "user"
+    },
+    {
+      "id": "4cdc",
+      "name": "jose",
+      "email": "jose@example.com",
+      "password": "12345",
+      "role": "user"
     }
   ]
 }

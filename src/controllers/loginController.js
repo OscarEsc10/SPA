@@ -51,29 +51,38 @@ export function updateNavVisibility() {
   const navbarLogoutBtn = document.getElementById('navbar-logout-btn');
   const dashboardLink = document.querySelector('a[href="/dashboard"]');
   const navbarUsername = document.getElementById('navbar-username');
+  const usersLink = document.querySelector('a[href="/users"]'); // Corregido
 
   if (user) {
-    // Hide login/register, show logout/dashboard, display username
+    // Oculta login/register, muestra logout/dashboard, muestra username
     if (loginLink) loginLink.classList.add('hidden');
     if (registerLink) registerLink.classList.add('hidden');
     if (logoutBtn) logoutBtn.classList.remove('hidden');
     if (navbarLogoutBtn) navbarLogoutBtn.classList.remove('hidden');
     if (dashboardLink) dashboardLink.classList.remove('hidden');
+    // Solo muestra el enlace de usuarios si es admin
+    if (usersLink) {
+      if (user.rol === 'admin') {
+        usersLink.classList.remove('hidden');
+      } else {
+        usersLink.classList.add('hidden');
+      }
+    }
     if (navbarUsername) {
       navbarUsername.textContent = user.name;
       navbarUsername.classList.remove('hidden');
     }
   } else {
-    // Show login/register, hide logout/dashboard, clear username
+    // Muestra login/register, oculta logout/dashboard/users, limpia username
     if (loginLink) loginLink.classList.remove('hidden');
     if (registerLink) registerLink.classList.remove('hidden');
     if (logoutBtn) logoutBtn.classList.add('hidden');
     if (navbarLogoutBtn) navbarLogoutBtn.classList.add('hidden');
     if (dashboardLink) dashboardLink.classList.add('hidden');
+    if (usersLink) usersLink.classList.add('hidden');
     if (navbarUsername) {
       navbarUsername.textContent = '';
       navbarUsername.classList.add('hidden');
     }
   }
 }
-  

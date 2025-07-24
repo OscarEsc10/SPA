@@ -3,11 +3,12 @@
 import { loginView } from "../views/login.js";
 import { registerView } from "../views/register.js";
 import { notFoundView } from "../views/notFound.js";
-import { listOfUser } from "../views/listOfusers.js";
+import { users } from "../views/users.js";
 import { eventsManagment } from "../views/eventsManagment.js";
 import { setupLoginForm, updateNavVisibility } from '../controllers/loginController.js';
-import { setupLogoutButton } from '../controllers/logoutcontroller.js';
+import { setupLogoutButton } from '../controllers/logoutController.js';
 import { registerLogic } from '../controllers/registerControllers.js';
+import { forbiddenView } from "../views/forbidden.js";
 
 // Import transition effects for smooth page transitions
 import { applyTransition } from "../assets/jsStyles/styles.js";
@@ -28,7 +29,13 @@ const routes = {
   // Dashboard (event management) view
   "/dashboard": eventsManagment,
   // Users list view
-  "/users": listOfUser,
+  "/users": async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || user.rol !== 'admin') {
+      return forbiddenView();
+    }
+    return users();
+  },
 };
 
 // Main router function: loads the view based on the current path
@@ -46,7 +53,7 @@ async function router(e) {
   if (path == '/login') setupLoginForm();
   if (path == '/dashboard') setupLogoutButton();
   if (path == '/register') registerLogic();
-
+  setupLogoutButton();
   updateNavVisibility();
 }
 
