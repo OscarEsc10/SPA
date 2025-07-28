@@ -16,11 +16,10 @@ a:hover {
 body {
   margin: 0; /* Remove default margin */
   display: flex; /* Use flexbox for layout */
-  place-items: center; /* Center content vertically and horizontally */
-  animation: fadeIn 1s ease-out forwards; /* Fade-in animation on load */
+  flex-direction: column; /* Stack elements vertically */
   min-width: 320px; /* Minimum width for responsiveness */
   min-height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Hide overflow */
+  animation: fadeIn 1s ease-out forwards; /* Fade-in animation on load */
 }
 
 /* Keyframes for fade-in effect on page load */

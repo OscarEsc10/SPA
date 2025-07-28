@@ -36,39 +36,10 @@
       "role": "user"
     },
     {
-      "id": "223a",
-      "name": "alfredo",
-      "email": "alfredo1233@example.com",
-      "password": "alfredo123",
-      "role": "user"
-    },
-    {
-      "id": "2223",
-      "name": "alfredo",
-      "email": "alfredo1233@example.com",
-      "password": "alfredo123",
-      "role": "user"
-    },
-    {
-      "id": "7db1",
-      "name": "Nuevo Usuario",
-      "email": "nuevo@example.com",
-      "password": "123456",
-      "role": "user"
-    },
-    {
-      "id": "e2a7",
       "name": "ana",
       "email": "ana@example.com",
-      "password": "12345",
-      "role": "user"
-    },
-    {
-      "id": "4cdc",
-      "name": "jose",
-      "email": "jose@example.com",
-      "password": "12345",
-      "role": "user"
+      "role": "admin",
+      "id": "e2a7"
     }
   ]
 }

@@ -3,11 +3,13 @@
 import { loginView } from "../views/login.js";
 import { registerView } from "../views/register.js";
 import { notFoundView } from "../views/notFound.js";
-import { users } from "../views/users.js";
+import { usersView } from "../views/users.js";
+import { getUsers, setupUsersCrudEvents } from '../controllers/crudController.js';
 import { eventsManagment } from "../views/eventsManagment.js";
 import { setupLoginForm, updateNavVisibility } from '../controllers/loginController.js';
 import { setupLogoutButton } from '../controllers/logoutController.js';
 import { registerLogic } from '../controllers/registerControllers.js';
+import { setupEventsHandlers } from '../controllers/eventsController.js';
 import { forbiddenView } from "../views/forbidden.js";
 
 // Import transition effects for smooth page transitions
@@ -27,14 +29,26 @@ const routes = {
   // Register view
   "/register": registerView,
   // Dashboard (event management) view
-  "/dashboard": eventsManagment,
-  // Users list view
-  "/users": async () => {
+  "/dashboard": async () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (!user || user.rol !== 'admin') {
+    if (!user) {
       return forbiddenView();
     }
-    return users();
+    return eventsManagment();
+  },
+  "/users": async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user || user.role !== 'admin') {
+      return forbiddenView();
+    }
+    let usersList = [];
+    let error = '';
+    try {
+      usersList = await getUsers();
+    } catch (e) {
+      error = 'The users cant be uploaded';
+    }
+    return usersView({ usersList, error });
   },
 };
 
@@ -51,9 +65,12 @@ async function router(e) {
   await applyTransition(html, path);
 
   if (path == '/login') setupLoginForm();
-  if (path == '/dashboard') setupLogoutButton();
+  if (path == '/dashboard') {
+    setupLogoutButton();
+    setupEventsHandlers();
+  }
   if (path == '/register') registerLogic();
-  setupLogoutButton();
+  if (path == '/users') setupUsersCrudEvents();
   updateNavVisibility();
 }
 
